@@ -3,12 +3,12 @@ import HomeLayout from "../layouts/HomeLayout";
 import HomePage from "../pages/HomePage";
 import AuthLayout from "../layouts/AuthLayout";
 import DetailsLayout from "../layouts/DetailsLayout";
-import CategoryNews from "../components/structure/CategoryNews";
 import NewsDetailsPage from "../pages/NewsDetailsPage";
 import SignIn from "../pages/SignIn";
 import SignUp from "../pages/SignUp";
 import PageNotFoundPage from "../pages/PageNotFoundPage";
 import Error from "../components/ui/Error";
+import CategoryNews from "../pages/CategoryNews";
 
 export const Routes = createBrowserRouter([
     {
