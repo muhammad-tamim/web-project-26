@@ -2,9 +2,11 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div>
-            Footer
-        </div>
+        <footer className="footer sm:footer-horizontal footer-center bg-base-300 text-base-content p-4 mt-20">
+            <aside>
+                <p>Copyright © {new Date().getFullYear()} - All right reserved by The Dragon News</p>
+            </aside>
+        </footer>
     );
 };
 
