@@ -1,20 +1,34 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, use } from 'react';
 import userLogo from '../../assets/logos/user.png';
 import { Link, NavLink } from 'react-router';
 import { CiMenuFries } from 'react-icons/ci';
 import CategoryMenuItems from './leftSide/CategoryMenuItems';
+import { AuthContext } from '../../contexts/AuthContext';
+import toast from 'react-hot-toast';
 
 const fetchCategories = fetch('/categories.json').then(res => res.json())
 
+const navItems = <>
+    <NavLink to="/news/1" className={({ isActive }) => isActive ? "underline text-lg dark3" : "text-lg dark3"}>Home</NavLink>
+    <NavLink to={"/about"} className={({ isActive }) => isActive ? "underline text-lg dark3" : "text-lg dark3"}>About</NavLink>
+    <NavLink to={"/career"} className={({ isActive }) => isActive ? "underline text-lg dark3" : "text-lg dark3"}>Career</NavLink>
+</>
+
 const Navbar = () => {
-    const navItems = <>
-        <NavLink to="/news/1" className={({ isActive }) => isActive ? "underline text-lg dark3" : "text-lg dark3"}>Home</NavLink>
-        <NavLink to={"/about"} className={({ isActive }) => isActive ? "underline text-lg dark3" : "text-lg dark3"}>About</NavLink>
-        <NavLink to={"/career"} className={({ isActive }) => isActive ? "underline text-lg dark3" : "text-lg dark3"}>Career</NavLink>
-    </>
+
+    const { user, signOutUser } = use(AuthContext)
+
+    const handleSignOut = () => {
+        signOutUser()
+            .then(() => {
+                toast.success("SignOut successful")
+            })
+    }
+
     return (
         <div className='flex items-center justify-between mt-8'>
             <div>
+                <p className='hidden lg:flex'>{user?.email}</p>
                 <div className="drawer drawer-end lg:hidden">
                     <input id="my-drawer-5" type="checkbox" className="drawer-toggle" />
                     <div className="drawer-content">
@@ -40,8 +54,8 @@ const Navbar = () => {
                 {navItems}
             </div>
             <div className='flex gap-2 items-center'>
-                <img className='size-8 md:size-11' src={userLogo} alt="" />
-                <Link to={'/auth/sign-in'} className='btn btn-secondary text-white font-medium btn-sm  md:btn-md md:text-xl md:px-6'>Login</Link>
+                <img className='size-8 md:size-11' src={user ? user.photoURL : userLogo} alt="" />
+                {user ? <button onClick={handleSignOut} className='btn btn-secondary text-white font-medium btn-sm  md:btn-md md:text-xl md:px-6'>LogOut</button> : <Link to={'/auth/sign-in'} className='btn btn-secondary text-white font-medium btn-sm  md:btn-md md:text-xl md:px-6'>Login</Link>}
             </div>
         </div>
     );
