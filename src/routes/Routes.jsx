@@ -10,6 +10,7 @@ import PageNotFoundPage from "../pages/PageNotFoundPage";
 import Error from "../components/ui/Error";
 import CategoryNews from "../pages/CategoryNews";
 import LoadingSpinner from "../components/ui/LoadingSpinner";
+import PrivateRoute from "./PrivateRoute";
 
 export const Routes = createBrowserRouter([
     {
@@ -31,12 +32,12 @@ export const Routes = createBrowserRouter([
     },
     {
         path: '/news-details/:id',
-        element: <DetailsLayout></DetailsLayout>,
+        element: <PrivateRoute><DetailsLayout></DetailsLayout></PrivateRoute>,
         errorElement: <Error></Error>,
         children: [
             {
                 index: true,
-                element: <NewsDetailsPage></NewsDetailsPage>,
+                element: <PrivateRoute><NewsDetailsPage></NewsDetailsPage></PrivateRoute>,
                 loader: () => fetch('/news.json'),
                 hydrateFallbackElement: <LoadingSpinner></LoadingSpinner>
             }
