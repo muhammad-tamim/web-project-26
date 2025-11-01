@@ -1,8 +1,8 @@
 import React from 'react';
 
-const LoadingSpinner = () => {
+const LoadingSpinner = ({ minHScreen }) => {
     return (
-        <div className='min-h-screen flex justify-center items-center'>
+        <div className={`${minHScreen} flex justify-center items-center`}>
             <span className="loading loading-spinner size-20"></span>
         </div>
     );

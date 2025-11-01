@@ -9,6 +9,7 @@ import SignUp from "../pages/SignUp";
 import PageNotFoundPage from "../pages/PageNotFoundPage";
 import Error from "../components/ui/Error";
 import CategoryNews from "../pages/CategoryNews";
+import LoadingSpinner from "../components/ui/LoadingSpinner";
 
 export const Routes = createBrowserRouter([
     {
@@ -24,7 +25,7 @@ export const Routes = createBrowserRouter([
                 path: '/news/:id',
                 element: <CategoryNews></CategoryNews>,
                 loader: () => fetch('/news.json'),
-                hydrateFallbackElement: <p>Loadig..................</p>
+                hydrateFallbackElement: <LoadingSpinner></LoadingSpinner>
             }
         ]
     },

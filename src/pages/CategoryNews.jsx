@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useLoaderData, useParams } from 'react-router';
+import { useLoaderData, useNavigation, useParams } from 'react-router';
 import CategoryNewsCard from '../components/ui/CategoryNewsCard';
+import LoadingSpinner from '../components/ui/LoadingSpinner';
+import EmptyState from '../components/ui/EmptyState';
 
 const CategoryNews = () => {
+    const navigation = useNavigation()
     const [data, setData] = useState([])
     const { id } = useParams()
     const intId = parseInt(id)
@@ -21,6 +24,14 @@ const CategoryNews = () => {
             setData(filteredId)
         }
     }, [news, intId])
+
+
+
+    if (navigation.state === 'loading') {
+        return <LoadingSpinner></LoadingSpinner>
+    }
+
+    if (data.length === 0) return <EmptyState></EmptyState>
 
     return (
         <div>
