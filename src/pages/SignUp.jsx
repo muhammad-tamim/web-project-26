@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 
 const SignUp = () => {
 
-    const { signUpUser, setUser, updateUserInfo } = use(AuthContext)
+    const { signUpUser, setUser, updateUserInfo, loading } = use(AuthContext)
 
     const navigate = useNavigate()
 
@@ -55,7 +55,10 @@ const SignUp = () => {
                         <input type="checkbox" defaultChecked className="checkbox" />
                         <label className=" dark3">Accept Terms & Condition</label>
                     </div>
-                    <button type='submit' className="btn btn-neutral w-full btn-lg">Register</button>
+                    <button type='submit' className="btn btn-neutral w-full btn-lg">
+                        {loading && <span className="loading loading-spinner loading-sm"></span>}
+                        <span>Register</span>
+                    </button>
                 </form>
                 <p className='font-semibold text-center dark3 mt-6'>Already Have An Account? <Link to={'/auth/sign-in'} className='text-red-500'>Login</Link></p>
             </div>

@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 
 const SignIn = () => {
 
-    const { signInUser } = use(AuthContext)
+    const { signInUser, loading } = use(AuthContext)
     const location = useLocation()
     const navigate = useNavigate()
 
@@ -37,7 +37,10 @@ const SignIn = () => {
                     <label className="font-semibold text-xl dark2 mb-4">Password</label>
                     <input type="password" name='password' className="input input-xl text-base w-full dark7 outline-0 mb-2" placeholder="Enter your password" />
                     <div className='mb-6'><a className="link link-hover text-sm">Forgot password?</a></div>
-                    <button type='submit' className="btn btn-neutral w-full btn-lg">Login</button>
+                    <button type='submit' className="btn btn-neutral w-full btn-lg">
+                        {loading && <span className="loading loading-spinner loading-sm"></span>}
+                        <span>Login</span>
+                    </button>
                 </form>
                 <p className='font-semibold text-center dark3 mt-6'>Don't Have An Account? <Link to={'/auth/sign-up'} className='text-red-500'>Register</Link></p>
             </div>
