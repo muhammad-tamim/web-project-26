@@ -1,16 +1,30 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Header from '../components/structure/Header';
 import { Outlet } from 'react-router';
 import Footer from '../components/structure/Footer';
 import Navbar from '../components/structure/Navbar';
 import LeftSide from '../components/structure/leftSide/LeftSide';
 import RightSide from '../components/structure/rightSide/RightSide';
+import ShowMarquee from '../components/ui/ShowMarquee';
+
+
+const fetchData = fetch("/news.json").then(res => res.json())
 
 const HomeLayout = () => {
     return (
         <>
             <div>
                 <Header></Header>
+
+                <div className='mt-7 flex items-center gap-2 md:gap-5 dark7 p-1  md:p-4'>
+                    <button className='btn btn-primary text-white font-medium btn-sm  md:btn-md md:text-xl md:px-6'>Latest</button>
+
+                    <Suspense fallback={<span className="mx-auto loading loading-spinner loading-lg"></span>}>
+                        <ShowMarquee fetchData={fetchData}></ShowMarquee>
+                    </Suspense>
+
+                </div>
+
                 <Navbar></Navbar>
             </div>
             <div className='grid grid-cols-12 gap-6 mt-20 min-h-[calc(100vh-576px)]'>
