@@ -36,7 +36,9 @@ export const Routes = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <NewsDetailsPage></NewsDetailsPage>
+                element: <NewsDetailsPage></NewsDetailsPage>,
+                loader: () => fetch('/news.json'),
+                hydrateFallbackElement: <LoadingSpinner></LoadingSpinner>
             }
         ]
     },
