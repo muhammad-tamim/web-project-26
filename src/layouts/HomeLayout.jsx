@@ -6,6 +6,8 @@ import Navbar from '../components/structure/Navbar';
 import LeftSide from '../components/structure/leftSide/LeftSide';
 import RightSide from '../components/structure/rightSide/RightSide';
 import ShowMarquee from '../components/ui/ShowMarquee';
+import CategoryMenuItems from '../components/structure/leftSide/CategoryMenuItems';
+import SocialLogin from '../components/structure/rightSide/SocialLogin';
 
 
 const fetchData = fetch("/news.json").then(res => res.json())
@@ -27,7 +29,9 @@ const HomeLayout = () => {
 
                 <Navbar></Navbar>
             </div>
-            <div className='grid grid-cols-12 gap-6 mt-20 min-h-[calc(100vh-576px)]'>
+
+
+            <div className='hidden lg:grid grid-cols-12 gap-6 mt-20 min-h-[calc(100vh-576px)]'>
                 {/* left side */}
                 <div className='col-span-3 h-screen overflow-y-auto scrollbar sticky top-4'>
                     <LeftSide></LeftSide>
@@ -41,6 +45,17 @@ const HomeLayout = () => {
                     <RightSide></RightSide>
                 </div>
             </div>
+
+            {/* news and left+right side bar for small screen */}
+            <div className='mt-10 space-y-10'>
+                <div className='text-center'>
+                    <SocialLogin></SocialLogin>
+                </div>
+                <div>
+                    <Outlet></Outlet>
+                </div>
+            </div>
+
             <div>
                 <Footer></Footer>
             </div>
