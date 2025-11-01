@@ -22,7 +22,9 @@ export const Routes = createBrowserRouter([
             },
             {
                 path: '/news/:id',
-                element: <CategoryNews></CategoryNews>
+                element: <CategoryNews></CategoryNews>,
+                loader: () => fetch('/news.json'),
+                hydrateFallbackElement: <p>Loadig..................</p>
             }
         ]
     },

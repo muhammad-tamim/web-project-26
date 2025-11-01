@@ -15,15 +15,15 @@ const HomeLayout = () => {
             </div>
             <div className='grid grid-cols-12 gap-6 mt-20 min-h-[calc(100vh-576px)]'>
                 {/* left side */}
-                <div className='col-span-3 border'>
+                <div className='col-span-3 h-screen overflow-y-auto scrollbar sticky top-4'>
                     <LeftSide></LeftSide>
                 </div>
                 {/* middle */}
-                <div className='col-span-6 border'>
+                <div className='col-span-6'>
                     <Outlet></Outlet>
                 </div>
                 {/* right side */}
-                <div className='col-span-3 border'>
+                <div className='col-span-3 max-h-screen overflow-y-auto scrollbar sticky top-4'>
                     <RightSide></RightSide>
                 </div>
             </div>
