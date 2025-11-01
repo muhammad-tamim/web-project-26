@@ -6,7 +6,7 @@ import Ads from './Ads';
 
 const RightSide = () => {
     return (
-        <div>
+        <div className='space-y-5'>
             <SocialLogin></SocialLogin>
             <SocialLinks></SocialLinks>
             <QZone></QZone>

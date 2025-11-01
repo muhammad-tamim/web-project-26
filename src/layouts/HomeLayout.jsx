@@ -23,7 +23,7 @@ const HomeLayout = () => {
                     <Outlet></Outlet>
                 </div>
                 {/* right side */}
-                <div className='col-span-3 border h-fit'>
+                <div className='col-span-3 border'>
                     <RightSide></RightSide>
                 </div>
             </div>
