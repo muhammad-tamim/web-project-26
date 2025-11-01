@@ -154,9 +154,8 @@ here,
 </div>
 ```
 
-## What Challenges I Face While Building This Project:
 
-1. To formate a ISO date to a CA English data formate: 
+8. Hot to formate a ISO date to a CA English data formate: 
 
 ```jsx
  /*
@@ -171,6 +170,35 @@ here,
     console.log(date.toLocaleDateString()) // 4/23/2025
     console.log(date.toLocaleDateString('en-US')) // 4/23/2025
     console.log(date.toLocaleDateString('en-CA')) // 2025-04-23 (Canadian English locale)
+```
+
+## Challenges I faced while building this project:
+
+1. while setting the react host toast on the main.jsx  
+
+```jsx
+// main.jsx
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client';
+import './index.css'
+import { RouterProvider } from 'react-router';
+import { Routes } from './routes/Routes';
+import MaxWidth from './components/ui/MaxWidth';
+import AuthProvider from './providers/AuthProvider';
+import { Toaster } from 'react-hot-toast';
+
+
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <MaxWidth>
+      <AuthProvider>
+        <RouterProvider router={Routes}></RouterProvider>
+        <Toaster position='top-right'></Toaster>
+      </AuthProvider>
+    </MaxWidth>
+  </StrictMode>,
+)
 ```
 
 ## Contact With Me: 
