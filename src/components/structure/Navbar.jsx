@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import userLogo from '../../assets/logos/user.png';
 import { NavLink } from 'react-router';
 import { CiMenuFries } from 'react-icons/ci';
+import CategoryMenuItems from './leftSide/CategoryMenuItems';
+
+const fetchCategories = fetch('/categories.json').then(res => res.json())
 
 const Navbar = () => {
     const navItems = <>
@@ -12,7 +15,7 @@ const Navbar = () => {
     return (
         <div className='flex items-center justify-between mt-8'>
             <div>
-                <div className="drawer drawer-end md:hidden">
+                <div className="drawer drawer-end lg:hidden">
                     <input id="my-drawer-5" type="checkbox" className="drawer-toggle" />
                     <div className="drawer-content">
                         {/* Page content here */}
@@ -20,9 +23,15 @@ const Navbar = () => {
                     </div>
                     <div className="drawer-side">
                         <label htmlFor="my-drawer-5" aria-label="close sidebar" className="drawer-overlay"></label>
-                        <ul className="menu space-y-5 bg-base-200 min-h-full w-52 p-4">
+                        <ul className="menu space-y-5 bg-base-200 min-h-full w-60 p-4">
                             {/* Sidebar content here */}
-                            {navItems}
+                            <div className='flex flex-col gap-2 justify-center items-center'>
+                                {navItems}
+                            </div>
+                            <hr className='text-gray-300' />
+                            <Suspense fallback={<span className="mx-auto flex loading loading-spinner loading-xl"></span>}>
+                                <CategoryMenuItems fetchCategories={fetchCategories}></CategoryMenuItems>
+                            </Suspense>
                         </ul>
                     </div>
                 </div>

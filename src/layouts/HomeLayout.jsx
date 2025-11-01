@@ -47,7 +47,7 @@ const HomeLayout = () => {
             </div>
 
             {/* news and left+right side bar for small screen */}
-            <div className='mt-10 space-y-10'>
+            <div className='lg:hidden mt-10 space-y-10'>
                 <div className='text-center'>
                     <SocialLogin></SocialLogin>
                 </div>
