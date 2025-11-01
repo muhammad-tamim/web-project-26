@@ -113,6 +113,13 @@ const ShowMarquee = ({ fetchData }) => {
 export default ShowMarquee;
 ```
 
+5. How to make a text-gradient: 
+
+```jsx
+<div>
+    {details.length > 200 && <Link to={`/news-details/${id}`} className='font-medium bg-linear-to-r from-[#FF8C47] to-[#F75B5F] bg-clip-text text-transparent'>Read More</Link>}
+</div>
+```
 
 ## What Challenges I Face While Building This Project:
 
