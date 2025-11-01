@@ -8,7 +8,7 @@ const fetchCategories = fetch('/categories.json').then(res => res.json())
 
 const Navbar = () => {
     const navItems = <>
-        <NavLink to={"/"} className={({ isActive }) => isActive ? "underline text-lg dark3" : "text-lg dark3"}>Home</NavLink>
+        <NavLink to="/news/1" className={({ isActive }) => isActive ? "underline text-lg dark3" : "text-lg dark3"}>Home</NavLink>
         <NavLink to={"/about"} className={({ isActive }) => isActive ? "underline text-lg dark3" : "text-lg dark3"}>About</NavLink>
         <NavLink to={"/career"} className={({ isActive }) => isActive ? "underline text-lg dark3" : "text-lg dark3"}>Career</NavLink>
     </>
