@@ -37,12 +37,12 @@ const CategoryNewsCard = ({ singleData }) => {
                 <hr className='text-[#E7E7E7] mb-5' />
                 <div className='mb-5 flex items-center justify-between'>
 
-                    <div className='flex gap-2.5 items-center'>
+                    <div className='flex gap-1 md:gap-2.5 items-center'>
                         {[...Array(rating.number)].map((_, index) => <FaStar key={index} className='text-[#FF8C47]' size={20} />)}
                         <p className='dark3 font-medium text-lg'>{rating.number}</p>
                     </div>
 
-                    <div className='flex items-center gap-2.5'>
+                    <div className='flex items-center gap-1 md:gap-2.5'>
                         <IoMdEye size={20} className='dark3' />
                         <p className='dark3'>{total_view}</p>
                     </div>
