@@ -113,7 +113,25 @@ const ShowMarquee = ({ fetchData }) => {
 export default ShowMarquee;
 ```
 
+
 ## What Challenges I Face While Building This Project:
+
+1. To formate a ISO date to a CA English data formate: 
+
+```jsx
+ /*
+    "author": {
+      "name": "Shirin Akter",
+      "published_date": "2025-04-22T17:00:00.000Z",
+      "img": "https://randomuser.me/api/portraits/women/29.jpg"
+    }, 
+    */
+
+    const date = new Date(author.published_date)
+    console.log(date.toLocaleDateString()) // 4/23/2025
+    console.log(date.toLocaleDateString('en-US')) // 4/23/2025
+    console.log(date.toLocaleDateString('en-CA')) // 2025-04-23 (Canadian English locale)
+```
 
 ## Contact With Me: 
 
