@@ -121,6 +121,20 @@ export default ShowMarquee;
 </div>
 ```
 
+6. How to iterate a map by just a number: 
+
+```jsx
+<div className='flex gap-2.5 items-center'>
+    {[...Array(rating.number)].map((_, index) => <FaStar key={index} className='text-[#FF8C47]' size={24} />)}
+    <p className='dark3 font-medium text-xl'>{rating.number}</p>
+</div>
+```
+
+here, 
+- Array(number) --> creates an array with a length of number but its elements are uninitialized. 
+- [...Array(number)] --> the spread operator (...) turns that uninitialized elements into a real array with undefined values: [undefined, undefined, ...]
+- map((_, index)) --> underscore _ is used here to show we don’t care about the value, we just need iterate.
+
 ## What Challenges I Face While Building This Project:
 
 1. To formate a ISO date to a CA English data formate: 
