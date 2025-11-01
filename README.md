@@ -1,10 +1,17 @@
-## Project Name: 
+## Project Name: The Dragon News
 
-## What Problem I Solve By This Project: 
+<!-- ## What Problem I Solve By This Project:  -->
+## Project Description:
+This is a online news website where users can view news articles and sign in or sign out using email, Google, or GitHub. I created this project to practice Firebase authentication.
+
+https://github.com/user-attachments/assets/fd6302d7-61a5-4d0c-993e-8ab7bca333a6
+
+<!-- ## Features: -->
 
 ## Live Site Link: 
 
-## Features:
+https://web-project-26.netlify.app/news/1
+
 
 ## What I Learned New While Building This Project: 
 
