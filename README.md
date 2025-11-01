@@ -135,6 +135,25 @@ here,
 - [...Array(number)] --> the spread operator (...) turns that uninitialized elements into a real array with undefined values: [undefined, undefined, ...]
 - map((_, index)) --> underscore _ is used here to show we don’t care about the value, we just need iterate.
 
+7. How to make scrollbar
+
+```jsx
+<div className='grid grid-cols-12 gap-6 mt-20 min-h-[calc(100vh-576px)]'>
+    {/* left side */}
+    <div className='col-span-3 h-screen overflow-y-auto scrollbar sticky top-4'>
+        <LeftSide></LeftSide>
+    </div>
+    {/* middle */}
+    <div className='col-span-6'>
+        <Outlet></Outlet>
+    </div>
+    {/* right side */}
+    <div className='col-span-3 max-h-screen overflow-y-auto scrollbar sticky top-4'>
+        <RightSide></RightSide>
+    </div>
+</div>
+```
+
 ## What Challenges I Face While Building This Project:
 
 1. To formate a ISO date to a CA English data formate: 
