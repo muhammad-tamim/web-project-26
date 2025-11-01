@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import userLogo from '../../assets/logos/user.png';
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
 import { CiMenuFries } from 'react-icons/ci';
 import CategoryMenuItems from './leftSide/CategoryMenuItems';
 
@@ -41,7 +41,7 @@ const Navbar = () => {
             </div>
             <div className='flex gap-2 items-center'>
                 <img className='size-8 md:size-11' src={userLogo} alt="" />
-                <button className='btn btn-secondary text-white font-medium btn-sm  md:btn-md md:text-xl md:px-6'>Login</button>
+                <Link to={'/auth/sign-in'} className='btn btn-secondary text-white font-medium btn-sm  md:btn-md md:text-xl md:px-6'>Login</Link>
             </div>
         </div>
     );
